@@ -7,6 +7,8 @@ import static org.springframework.http.MediaType.TEXT_HTML_VALUE;
 import static org.springframework.http.ResponseEntity.status;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import accelerometer.server.model.AccelerationModel;
@@ -60,7 +62,7 @@ public class AccelerationController {
     
     @RequestMapping(value="/{user}",method = RequestMethod.GET)
     public String getLastPrediction(@PathVariable String user) {
-        try{Result prediction = cassandraTemplate.select("select prediction from result where user_id='"+user+"'", Result.class).get(0);
+    	try{Result prediction = cassandraTemplate.select("select prediction from result where user_id='"+user+"'", Result.class).get(0);
         if (logger.isInfoEnabled()) {
             logger.info("/GET /acceleration with values {}", prediction);
         }
