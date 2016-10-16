@@ -29,10 +29,10 @@ public class Acceleration {
 
     public Acceleration() {}
 
-    public Acceleration(AccelerationModel accelerationModel) {
+    public Acceleration(String user,AccelerationModel accelerationModel) {
         user_timestamp = new UserTimestamp();
         user_timestamp.setTimestamp(accelerationModel.getTimestamp());
-        user_timestamp.setUser_id(DEFAULT_USER);
+        user_timestamp.setUser_id(user);
         x = accelerationModel.getX();
         y = accelerationModel.getY();
         z = accelerationModel.getZ();

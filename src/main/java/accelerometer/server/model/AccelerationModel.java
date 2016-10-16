@@ -4,7 +4,9 @@ import javax.validation.constraints.NotNull;
 
 public class AccelerationModel {
 
-    @NotNull
+    
+	
+	@NotNull
     public Long timestamp;
 
     @NotNull
@@ -12,6 +14,7 @@ public class AccelerationModel {
 
     @NotNull
     public Double y;
+    
 
     @NotNull
     public Double z;
