@@ -53,17 +53,6 @@ public class AccelerationController {
         cassandraTemplate.insert(acceleration);
         return status(CREATED).build();
     }
-
-    @RequestMapping(method = RequestMethod.GET)
-    public String getLastPrediction() {
-        Result prediction = cassandraTemplate.select("select * from trainingAcceleration limit 1", Result.class).get(0);
-        if (logger.isInfoEnabled()) {
-            logger.info("/GET /acceleration with values {}", "DUPA");
-        }
-
-
-        return  "DUPA";
-    }
     
     @RequestMapping(value="/{user}",method = RequestMethod.GET)
     public String getLastPrediction(@PathVariable String user) {
@@ -90,13 +79,11 @@ public class AccelerationController {
     		Double diffZ = item.getZ()-resultZ;
     		Double diffNorm = diffX + diffY+ diffZ;
     		diffNorm = Math.abs(diffNorm);
-    		logger.info("ATM"+diffNorm.toString());
     		if(result.equals("") || diffNorm < current){
     			current = diffNorm;
     			result = item.getResult();
     		}
     	}
-		logger.info("CURR"+current.toString());
 		return result;
     }
     

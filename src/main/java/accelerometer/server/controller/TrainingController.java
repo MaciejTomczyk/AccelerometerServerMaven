@@ -56,7 +56,6 @@ public class TrainingController {
         
     	if (log.isInfoEnabled()) {
             log.info("/POST /training/end with values {}", trainingAccelerationModel);
-            log.info("DUPA {}",accelerationList.size());
         }
     	for (TrainingAcceleration item:accelerationList){
     		listX.add(item.getX());
